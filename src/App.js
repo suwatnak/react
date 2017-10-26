@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 const forAuth = (WrappedComponent) => {
-  return props => props.isLogin ? WrappedComponent(...props) : null
+  return props => props.isLogin ? <WrappedComponent{...props} /> : null
 }
 
-const ProtectedComponent = (props) => (
-  <h1>ProtectedComponent Connect {props.toString()}</h1>
+const ProtectedComponent = ({isLogin}) => (
+  <h1>ProtectedComponent Connect {isLogin.toString()}</h1>
 )
 
 const EnhancedComponent = forAuth(ProtectedComponent)
@@ -15,13 +15,13 @@ class App extends Component {
     isLogin: false,
   }
   togglelogin = () => {
-    this.setState((prevStart) => ({ isLogin: !prevStart.isLogin }
+    this.setState((prevstate) => ({ isLogin: !prevstate.isLogin }
     ))
   }
   render() {
     return (
       <div>
-        <button onclick={this.togglelogin}>toggleButtom</button>
+        <button onClick={this.togglelogin}>toggleButtom</button>
         <EnhancedComponent isLogin={this.state.isLogin} />
       </div>
     );
