@@ -5,7 +5,7 @@ const forAuth = (WrappedComponent) => {
 }
 
 const ProtectedComponent = ({isLogin}) => (
-  <h1>ProtectedComponent Connect {isLogin.toString()}</h1>
+  <h1>Test {isLogin.toString()}</h1>
 )
 
 const EnhancedComponent = forAuth(ProtectedComponent)
