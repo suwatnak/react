@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.togglelogin}>toggleButtomooo</button>
+        <button onClick={this.togglelogin}>toggleButtom</button>
         <EnhancedComponent isLogin={this.state.isLogin} />
       </div>
     );
